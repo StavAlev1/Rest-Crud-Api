@@ -1,42 +1,3 @@
-
-## Introduction
-
-First of all, I would like to thank you for this opportunity, to allow me to demonstrate to you a gist of my skills for the job offer. I really appreciate the time that you will consume to test and judge my code and ways of thinking.
-
-## Some Entry Notes
-
-### Command for Database Creation
-
-I've created a command for initializing the database. Please run 
-`php artisan mysql:createdb-schoox` 
-
-before you even try anything else.
-
-### Migration
-
-You should run all the migrations or the create_courses_table specifically, with
-
-` php artisan migrate --path=/database/migrations/2022_10_05_110609_create_courses_table.php `
-
-### Seeder
-
-You should try and populate the table with fummy data, for making able to get the index of the API first.
-
-` php artisan db:seed --class=CourseSeeder`
-
-## General Notes
-
-- Functions index, show use custom resources (under Http\Resources) for json representation.
-- Functions store, update, destroy use a service pattern, injected in the controller.
-- There are two custom formRequests that validate data. (one for store, one for update, to avoid conflicts of required fields)
-- There is a custom override in function failedValidation, in the two request files
-- Routes are under routes/api.php
-- Dot env file has all default configs for database connection
-- No repositories used for this task
-- Swagger doc was time-consuming atm, as there has never been used before
-- API doc is below
-
-
 ## API documentation
 
 ### Authorization
@@ -216,6 +177,3 @@ Returns a message of successful operation.
 
 However, it will throw an error 404 if the given id doesn't match any course from the table.
 -- -- 
-
-And that's it!
-I thank you once again for this opportunity.
