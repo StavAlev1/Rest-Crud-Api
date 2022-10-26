@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Scopes\IsPremiumScope;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -22,6 +23,13 @@ class Course extends Model
     protected $casts = [
         'is_premium' => 'boolean',
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+ 
+        static::addGlobalScope(new IsPremiumScope);
+    }
 
     public function formatData()
     {
